@@ -10,15 +10,15 @@
 
 package starling.text
 {
-    import flash.geom.Rectangle;
-    import flash.utils.Dictionary;
-    
-    import starling.display.DisplayObject;
-    import starling.display.Image;
-    import starling.display.Sprite;
-    import starling.textures.Texture;
-    import starling.utils.HAlign;
-    import starling.utils.VAlign;
+	import starling.display.DisplayObject;
+	import starling.display.Image;
+	import starling.display.Sprite;
+	import starling.textures.Texture;
+	import starling.utils.HAlign;
+	import starling.utils.VAlign;
+
+	import flash.geom.Rectangle;
+	import flash.utils.Dictionary;
 
     /** The BitmapFont class parses bitmap font files and arranges the glyphs 
      *  in the form of a text.

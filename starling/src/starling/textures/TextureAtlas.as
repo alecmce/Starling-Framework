@@ -10,8 +10,8 @@
 
 package starling.textures
 {
-    import flash.geom.Rectangle;
-    import flash.utils.Dictionary;
+	import flash.geom.Rectangle;
+	import flash.utils.Dictionary;
 
     /** A texture atlas is a collection of many smaller textures in one big image. This class
      *  is used to access textures from such an atlas.
@@ -124,7 +124,9 @@ package starling.textures
                 if (name.indexOf(prefix) == 0)                
                     names.push(name);                
             
+			/*FDT_IGNORE*/
             names.sort(Array.CASEINSENSITIVE);
+            /*FDT_IGNORE*/
             
             for each (name in names) 
                 textures.push(getTexture(name)); 

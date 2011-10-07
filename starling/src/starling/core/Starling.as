@@ -10,35 +10,37 @@
 
 package starling.core
 {
-    import flash.display.Sprite;
-    import flash.display.Stage3D;
-    import flash.display3D.Context3D;
-    import flash.display3D.Program3D;
-    import flash.events.ErrorEvent;
-    import flash.events.Event;
-    import flash.events.KeyboardEvent;
-    import flash.events.MouseEvent;
-    import flash.events.TouchEvent;
-    import flash.geom.Point;
-    import flash.geom.Rectangle;
-    import flash.text.TextField;
-    import flash.text.TextFieldAutoSize;
-    import flash.text.TextFormat;
-    import flash.text.TextFormatAlign;
-    import flash.ui.Multitouch;
-    import flash.ui.MultitouchInputMode;
-    import flash.utils.ByteArray;
-    import flash.utils.Dictionary;
-    import flash.utils.getTimer;
-    
-    import starling.animation.Juggler;
-    import starling.display.DisplayObject;
-    import starling.display.Image;
-    import starling.display.Quad;
-    import starling.display.Stage;
-    import starling.events.ResizeEvent;
-    import starling.events.TouchPhase;
-    import starling.events.TouchProcessor;
+	import starling.animation.Juggler;
+	import starling.display.DisplayObject;
+	import starling.display.Image;
+	import starling.display.Quad;
+	import starling.display.Stage;
+	import starling.events.KeyboardEvent;
+	import starling.events.ResizeEvent;
+	import starling.events.TouchPhase;
+	import starling.events.TouchProcessor;
+
+	import flash.display.DisplayObject;
+	import flash.display.Sprite;
+	import flash.display.Stage;
+	import flash.display.Stage3D;
+	import flash.display3D.Context3D;
+	import flash.display3D.Program3D;
+	import flash.events.ErrorEvent;
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	import flash.events.TouchEvent;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	import flash.text.TextField;
+	import flash.text.TextFieldAutoSize;
+	import flash.text.TextFormat;
+	import flash.text.TextFormatAlign;
+	import flash.ui.Multitouch;
+	import flash.ui.MultitouchInputMode;
+	import flash.utils.ByteArray;
+	import flash.utils.Dictionary;
+	import flash.utils.getTimer;
     
     /** The Starling class represents the core of the Starling framework.
      *
@@ -109,7 +111,7 @@ package starling.core
         // members
         
         private var mStage3D:Stage3D;
-        private var mStage:Stage; // starling.display.stage!
+        private var mStage:starling.display.Stage; // starling.display.stage!
         private var mRootClass:Class;
         private var mJuggler:Juggler;
         private var mStarted:Boolean;        
@@ -153,7 +155,7 @@ package starling.core
             mRootClass = rootClass;
             mViewPort = viewPort;
             mStage3D = stage3D;
-            mStage = new Stage(viewPort.width, viewPort.height, stage.color);
+            mStage = new starling.display.Stage(viewPort.width, viewPort.height, stage.color);
             mNativeStage = stage;
             mTouchProcessor = new TouchProcessor(mStage);
             mJuggler = new Juggler();
@@ -222,7 +224,7 @@ package starling.core
         {
             if (mStage.numChildren > 0) return;
             
-            var rootObject:DisplayObject = new mRootClass();
+            var rootObject:starling.display.DisplayObject = new mRootClass();
             if (rootObject == null) throw new Error("Invalid root class: " + mRootClass);
             mStage.addChild(rootObject);
         }
@@ -485,8 +487,8 @@ package starling.core
             return mNativeOverlay;
         }
         
-        /** The Starling stage object, which is the root of the display tree that is rendered. */
-        public function get stage():Stage
+		/** The Starling stage object, which is the root of the display tree that is rendered. */
+		public function get stage():starling.display.Stage
         {
             return mStage;
         }
